@@ -2,11 +2,14 @@
 
 namespace Tetris
 {
-    public class GameBox
+    public class GameBoard
     {
         private const int WALL_WIDTH = 2;
         private const int ROWS = 20 + WALL_WIDTH;
         private const int COLUMNS = 10 + WALL_WIDTH;
+        private int figureRow = 0;
+        private int figureCol = 0;
+
 
         public int[,] GetGameArray()
         {
@@ -20,7 +23,6 @@ namespace Tetris
                         gameArea[i, j] = (int)BlockType.WallBlock;
                     }
                 }
-                Console.WriteLine();
             }
             return gameArea;
         }
@@ -41,6 +43,20 @@ namespace Tetris
             }
 
             return arr;
+        }
+
+        public bool MoveFigure(Direction direction, int row, int col)
+        {
+            switch (direction)
+            {
+                    case Direction.LEFT:
+                        break;
+                    case Direction.RIGHT:
+                       break;
+                    case Direction.DOWN:
+                        break;
+            }
+            return false;
         }
     }
 }

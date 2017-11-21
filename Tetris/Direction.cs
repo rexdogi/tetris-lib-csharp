@@ -1,6 +1,6 @@
 ﻿namespace Tetris
 {
-    public enum Directions
+    public enum Direction
     {
         LEFT, RIGHT, DOWN
     }

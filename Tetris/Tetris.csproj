@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockType.cs" />
-    <Compile Include="Directions.cs" />
+    <Compile Include="Bounds.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Dot.cs" />
     <Compile Include="Figure.cs" />
-    <Compile Include="GameBox.cs" />
+    <Compile Include="GameBoard.cs" />
+    <Compile Include="GUI.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

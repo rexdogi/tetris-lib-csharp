@@ -9,16 +9,17 @@ namespace Tetris
     {
         public static void Main(string[] args)
         {
-           
+
+            const int WALL_WIDTH = 1;
             var figure = new Figure(new Dot[]
             {
                 new Dot(0, 0),
                 new Dot(0, 1),
                 new Dot(0, 2),
-                new Dot(1, 2), 
-            }, 3);         
+                new Dot(0, 3), 
+            }, 4);         
 
-            var gameBox = new GameBox();
+            var gameBoard = new GameBoard();
             var row = 0;
             var col = 0;
             
@@ -30,7 +31,7 @@ namespace Tetris
                 switch (keyinfo.Key)
                 {
                         case ConsoleKey.UpArrow:
-                            figure.figureArray = RotateMatrix(figure.figureArray, figure.size);
+                            figure.Rotate();
                             break;
                         case ConsoleKey.DownArrow:
                             row++;
@@ -44,27 +45,15 @@ namespace Tetris
                             default:
                                 break;
                 }
-                           
-                Console.Clear();
-                var ar = gameBox.GetGameArray();
-                var lul = gameBox.SetFigurePosition(figure, row, col, ar);
-                Helpers.PrintGame(lul);
+                Console.SetCursorPosition(0, 0);         
+                // Console.Clear();
+                var ar = gameBoard.GetGameArray();
+                var lul = gameBoard.SetFigurePosition(figure, row, col, ar);
+                GUI.PrintGame(lul);
             }
             while (keyinfo.Key != ConsoleKey.X);
 
             Console.Read();
-        }
-        
-        private static int[,] RotateMatrix(int[,] matrix, int n) {
-            var ret = new int[n, n];
-
-            for (var i = 0; i < n; ++i) {
-                for (var j = 0; j < n; ++j) {
-                    ret[i, j] = matrix[n - j - 1, i];
-                }
-            }
-
-            return ret;
         }
     }
 }

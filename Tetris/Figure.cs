@@ -1,4 +1,6 @@
-﻿namespace Tetris
+﻿using System.Runtime.CompilerServices;
+
+namespace Tetris
 {
     public class Figure
     {
@@ -15,6 +17,48 @@
                 figureArray[dot.x, dot.y] = 1;
             }
         }
+        
+        public void Rotate()
+        {
+            var n = this.size;
+            var ret = new int[n, n];
+            for (var i = 0; i < n; ++i) {
+                for (var j = 0; j < n; ++j) {
+                    ret[i, j] = figureArray[n - j - 1, i];
+                }
+            }
+            this.figureArray = ret;
+        }
+
+        public void Shift(Direction direction)
+        {
+            var ret = new int[size, size];
+
+            switch (direction)
+            {
+                    case Direction.LEFT:
+                        
+                        break;
+            }
+            
+            for (var i = 0; i < figureArray.Length; i++)
+            {
+                
+            }
+        }
+
+        public bool CanShiftHorizontally(int[,] arr, Direction direction)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    
+                }
+            }
+            return true;
+        }
+       
 
     }
 }
