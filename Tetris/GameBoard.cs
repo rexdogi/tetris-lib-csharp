@@ -31,6 +31,35 @@ namespace Tetris
         {
             var fRow = 0;
             var fCol = 0;;
+            if(col == 0)
+            {
+                bool canShiftLeft = figure.CanShiftHorizontally(Direction.LEFT);
+                if (canShiftLeft)
+                {
+                    figure.Shift(Direction.LEFT);
+                }
+            }
+            else if(col == GameConstants.COLS - 4)
+            {
+                bool canShiftRight = figure.CanShiftHorizontally(Direction.RIGHT);
+                if (canShiftRight)
+                {
+                    figure.Shift(Direction.RIGHT);
+                }
+            }
+
+            if (row == GameConstants.ROWS - 4)
+            {
+                bool canShiftDown = figure.CanShiftVertically(Direction.DOWN);
+                if (canShiftDown)
+                {
+                    figure.Shift(Direction.DOWN);
+                }
+
+            }
+         
+          
+
             for (var i = row + 1; i < figure.figureArray.GetLength(0) + row + 1; i++)
             {
                 for (var j = col + 1; j < figure.figureArray.GetLength(1) + col + 1; j++)

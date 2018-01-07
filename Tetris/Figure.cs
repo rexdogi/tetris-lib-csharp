@@ -37,28 +37,86 @@ namespace Tetris
             switch (direction)
             {
                     case Direction.LEFT:
-                        
-                        break;
+                    
+                    for (int i = 0; i < figureArray.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < figureArray.GetLength(1) - 1; j++)
+                        {
+                            ret[i, j] = figureArray[i, j + 1];
+                        }
+                    }   
+                    break;
+
+                    case Direction.RIGHT:
+                    for (int i = 0; i < figureArray.GetLength(0); i++)
+                    {
+                        for (int j = 1; j < figureArray.GetLength(1); j++)
+                        {
+                            ret[i, j] = figureArray[i, j - 1];
+                        }
+                    }
+                    break;
+
+                    case Direction.DOWN:
+                    for (int i = 1; i < figureArray.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < figureArray.GetLength(1); j++)
+                        {
+                            ret[i, j] = figureArray[i - 1, j];
+                        }
+                    }
+                    break;
+
             }
-            
-            for (var i = 0; i < figureArray.Length; i++)
-            {
-                
-            }
+
+            this.figureArray = ret;
         }
 
-        public bool CanShiftHorizontally(int[,] arr, Direction direction)
+        public bool CanShiftHorizontally(Direction direction)
         {
-            for (int i = 0; i < arr.GetLength(0); i++)
+            bool canShift = true;
+            for (int i = 0; i < figureArray.GetLength(0); i++)
             {
-                for (int j = 0; j < arr.GetLength(1); j++)
+                switch (direction)
                 {
-                    
+                    case Direction.LEFT:
+                        if(figureArray[i, 0] != 0)
+                        {
+                            canShift = false;
+                        }
+                        break;
+                    case Direction.RIGHT:
+                        if (figureArray[i, figureArray.GetLength(1) -1] != 0)
+                        {
+                            canShift = false;
+                        }
+                        break;
+
                 }
             }
-            return true;
+        
+            return canShift;
         }
-       
+
+        public bool CanShiftVertically(Direction direction)
+        {
+            bool canShift = true;
+            for (int i = 0; i < figureArray.GetLength(1); i++)
+            {
+                switch (direction)
+                {
+                    case Direction.DOWN:
+                        if (figureArray[figureArray.GetLength(0) - 1, i] != 0)
+                        {
+                            canShift = false;
+                        }
+                        break;
+                }
+            }
+
+            return canShift;
+        }
+
 
     }
 }

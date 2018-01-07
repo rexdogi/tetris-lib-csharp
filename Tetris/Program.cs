@@ -34,13 +34,22 @@ namespace Tetris
                             figure.Rotate();
                             break;
                         case ConsoleKey.DownArrow:
+                        if (row + 1<= GameConstants.ROWS - 4)
+                        {
                             row++;
+                        }
                             break;
                         case ConsoleKey.RightArrow:
+                        if (col + 1 < 7)
+                        {
                             col++;
-                            break;
+                        }
+                        break;
                         case ConsoleKey.LeftArrow:
+                        if(col - 1 >= 0)
+                        {
                             col--;
+                        }
                             break;
                             default:
                                 break;
