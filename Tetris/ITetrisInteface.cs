@@ -8,8 +8,8 @@ namespace Tetris
 {
     interface ITetrisInteface
     {
-        void rotate();
+        void Rotate();
 
-        void move(Direction direction);
+        void Move(Direction direction);
     }
 }

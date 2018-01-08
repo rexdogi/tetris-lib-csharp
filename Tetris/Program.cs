@@ -19,7 +19,7 @@ namespace Tetris
                 new Dot(0, 3), 
             }, 4);         
 
-            var gameBoard = new GameBoard();
+            var gameBoard = new Library();
             var row = 0;
             var col = 0;
             
@@ -55,7 +55,6 @@ namespace Tetris
                                 break;
                 }
                 Console.SetCursorPosition(0, 0);         
-                // Console.Clear();
                 var ar = gameBoard.GetGameArray();
                 var lul = gameBoard.SetFigurePosition(figure, row, col, ar);
                 GUI.PrintGame(lul);

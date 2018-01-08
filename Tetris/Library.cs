@@ -2,7 +2,7 @@
 
 namespace Tetris
 {
-    public class GameBoard
+    public class Library: ITetrisInteface
     {
         private const int WALL_WIDTH = 2;
         private const int ROWS = 20 + WALL_WIDTH;
@@ -56,9 +56,7 @@ namespace Tetris
                     figure.Shift(Direction.DOWN);
                 }
 
-            }
-         
-          
+            }         
 
             for (var i = row + 1; i < figure.figureArray.GetLength(0) + row + 1; i++)
             {
@@ -86,6 +84,16 @@ namespace Tetris
                         break;
             }
             return false;
+        }
+
+        public void Rotate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Move(Direction direction)
+        {
+            throw new NotImplementedException();
         }
     }
 }

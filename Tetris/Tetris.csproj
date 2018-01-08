@@ -47,10 +47,10 @@
     <Compile Include="Direction.cs" />
     <Compile Include="Dot.cs" />
     <Compile Include="Figure.cs" />
-    <Compile Include="GameBoard.cs" />
+    <Compile Include="Library.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Helpers.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="ITetrisInteface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TetrisFigureType.cs" />
